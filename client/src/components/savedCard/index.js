@@ -7,7 +7,7 @@ function SavedCards(props) {
     const style = {
         border: {
             borderStyle: "solid",
-            borderColor: "lavender",
+            borderColor: "black",
             paddingRight: 20,
             paddingLeft: 20,
             paddingTop: 20,

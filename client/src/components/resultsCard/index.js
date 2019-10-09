@@ -1,4 +1,4 @@
-import React from "react";
+import React from "./node_modules/react";
 // import "../styles/resultsCard.css";
 
 //add props to display the cards dynamically....
@@ -7,7 +7,7 @@ function Cards(props) {
     const style = {
         border: {
             borderStyle: "solid",
-            borderColor: "lavender",
+            borderColor: "Black",
             paddingRight: 20,
             paddingLeft: 20,
             paddingTop: 20,
