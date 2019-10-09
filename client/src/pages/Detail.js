@@ -1,49 +1,80 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
-import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
+import Jumbotron from "../components/Jumbotron";
+import { Container, BoxOne } from "../components/Grid";
+import ViewCards from "../components/ViewCard"
+import Nav from "../components/Nav"
 
 class Detail extends Component {
   state = {
-    book: {}
+    book: {},
+    volumeInfo: {},
+    imageGallery: {},
+    authors: []
+
   };
-  // When this component mounts, grab the book with the _id of this.props.match.params.id
-  // e.g. localhost:3000/books/599dcb67f0f16317844583fc
+
   componentDidMount() {
-    API.getBook(this.props.match.params.id)
-      .then(res => this.setState({ book: res.data }))
+    this.loadBookInfo();
+  }
+
+  loadBookInfo = () => {
+    API.getGoogleBookById(this.props.match.params.id)
+      .then(res => {
+        console.log(res.data);
+
+        this.setState({
+          book: res.data, volumeInfo: res.data.volumeInfo, imageGallery: res.data.volumeInfo.imageLinks,
+          authors: res.data.volumeInfo.authors,
+        });
+        console.log(this.state.book);
+        console.log(this.state.volumeInfo);
+      })
+      .catch(err => console.log(err));
+  };
+
+
+  saveABook = (bookQuery) => {
+    API.saveBook(bookQuery)
+      .then(res => { console.log(res); this.loadBooks() })
       .catch(err => console.log(err));
   }
 
   render() {
     return (
-      <Container fluid>
-        <Row>
-          <Col size="md-12">
-            <Jumbotron>
-              <h1>
-                {this.state.book.title} by {this.state.book.author}
-              </h1>
-            </Jumbotron>
-          </Col>
-        </Row>
-        <Row>
-          <Col size="md-10 md-offset-1">
-            <article>
-              <h1>Synopsis</h1>
-              <p>
-                {this.state.book.synopsis}
-              </p>
-            </article>
-          </Col>
-        </Row>
-        <Row>
-          <Col size="md-2">
-            <Link to="/">← Back to Authors</Link>
-          </Col>
-        </Row>
-      </Container>
+      <div>
+        <Nav />
+        <Container fluid>
+          <Jumbotron>
+            <h1>(React) Google Book Search</h1>
+            <p>Search for and Save Books of your Interest</p>
+          </Jumbotron>
+
+
+          <BoxOne>
+            <h4 className="mb-4">Book Details</h4>
+
+            <ViewCards
+              id={this.state.book.id}
+              key={this.state.book.id}
+              saveABook={this.saveABook}
+              bookTitle={this.state.volumeInfo.title}
+              authors={this.state.volumeInfo.authors ? this.state.volumeInfo.authors.join(", ") : "No Available Author"}
+              image={this.state.imageGallery.thumbnail}
+              description={this.state.volumeInfo.description}
+              link={this.state.volumeInfo.infoLink}
+              language={this.state.volumeInfo.language}
+              published={this.state.volumeInfo.publishedDate}
+              publisher={this.state.volumeInfo.publisher}
+              pages={this.state.volumeInfo.pageCount}
+              rating={this.state.volumeInfo.averageRating} />
+
+
+
+          </BoxOne>
+
+        </Container>
+      </div>
     );
   }
 }
