@@ -1,4 +1,4 @@
-import React from "./node_modules/react";
+import React from "react";
 // import "../styles/resultsCard.css";
 
 //add props to display the cards dynamically....
@@ -55,13 +55,14 @@ function Cards(props) {
 
                 <div className="col-6">
                     <div><h5 style={style.textsize} >{props.bookTitle}</h5></div>
-                    <div style={style.textsizeAuthor}>Written by: {props.authors}</div>
+                    <div style={style.textsizeAuthor}>Author(s): {props.authors}</div>
                 </div>
 
                 <div className="col-6 d-flex align-items-end flex-column">
                     <div>
-                        <button className="btn btn-dark"><a href={`/Book/${props.id}`}> View </a> </button>
-                        <button className="btn btn-dark colorbtn" onClick={() => props.saveABook(bookQuery)} >Save</button>
+                        <button className="btn btn-light"><a href={`/Book/${props.id}`}> View Book</a> </button>
+                        
+                        <button className="btn btn-success" onClick={() => props.saveABook(bookQuery)} >Save Book</button>
 
                     </div>
                 </div>

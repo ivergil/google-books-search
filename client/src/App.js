@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Saved from "./pages/saved";
-import Search from "./pages/search";
-import Detail from "./pages/detail";
-import NoMatch from "./pages/404"
+import Saved from "./pages/Saved";
+import Search from "./pages/Search";
+import Detail from "./pages/Detail";
+import NoMatch from "./pages/NoMatch"
 
 function App() {
   return (
