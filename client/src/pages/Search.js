@@ -46,7 +46,7 @@ class Search extends Component {
   };
 
   saveABook = (bookQuery) => {
-    API.saveBook(bookQuery)
+    API.saveABook(bookQuery)
       .then(res => { console.log(res); this.loadBooks() })
       .catch(err => console.log(err));
   }

@@ -46,8 +46,8 @@ class Detail extends Component {
         <Nav />
         <Container fluid>
           <Jumbotron>
-            <h1>(React) Google Book Search</h1>
-            <p>Search for and Save Books of your Interest</p>
+            <h1>Google Book Search</h1>
+            <p>SSearch and Save your favorites Books</p>
           </Jumbotron>
 
 

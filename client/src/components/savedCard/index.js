@@ -50,8 +50,8 @@ function SavedCards(props) {
 
                 <div className="col-6 d-flex align-items-end flex-column">
                     <div>
-                        <button className="btn btn-dark"><a href={`/Book/${props.bookId}`}> View </a> </button>
-                        <button className="btn btn-dark colorbtn" onClick={() => props.deleteABook(props.id)} >Delete</button>
+                        <button className="btn btn-light"><a href={`/Book/${props.bookId}`}> View </a> </button>
+                        <button className="btn btn-danger colorbtn" onClick={() => props.deleteABook(props.id)} >Delete</button>
 
                     </div>
                 </div>

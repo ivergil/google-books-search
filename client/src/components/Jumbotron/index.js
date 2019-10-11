@@ -6,7 +6,7 @@ function Jumbotron({ children }) {
   return (
     <div
       style={{ backgroundImage: `url()`,
-      backgroundSize: "cover", height: 200, clear: "both", paddingTop: 50, textAlign: "center" }}
+      backgroundSize: "cover", height: 150, clear: "both", paddingTop: 30, textAlign: "center" }}
       className="jumbotron"
     >
       {children}

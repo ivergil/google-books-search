@@ -61,7 +61,7 @@ function ViewCard(props, { children }) {
                 <div className="col-6 d-flex align-items-end flex-column">
                     <div>
 
-                        <button className="btn btn-dark colorbtn" onClick={() => props.saveABook(bookQuery)} >Save</button>
+                        <button className="btn btn-success" onClick={() => props.saveABook(bookQuery)} >Save Book</button>
 
                     </div>
                 </div>
