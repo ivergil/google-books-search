@@ -17,6 +17,7 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes);
 
+
 // Connect to the Mongo DB
 // var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/googlebooks"
 mongoose.connect(process.env.MONGODB_URI || "mongodb://user:password1@ds137498.mlab.com:37498/heroku_cv9gnjfx");
